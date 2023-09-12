@@ -5,6 +5,8 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
+from werkzeug.security import generate_password_hash,check_password_hash
+import bcrypt
 
 api = Blueprint('api', __name__)
 
@@ -29,6 +31,8 @@ def create_user():
     body =  request.json
     email = body.get("email")
     password = body.get("password")
+    salt=str(bcrypt.gensalt(14))
+    password_hash=generate_password_hash(password + salt)
     
     user_exist = User.query.filter_by(email=email).one_or_none()
     if user_exist is not None:
@@ -38,7 +42,9 @@ def create_user():
     
     new_user = User(
         email = email,
-        password = password
+        password = password,
+        salt = salt,
+        password_hash = password_hash
     )
 
     try:
@@ -51,7 +57,9 @@ def create_user():
             "error": error.args
         }), 500
     
-    return jsonify({}), 201
+    return jsonify({
+        "message": "created user"
+    }), 201
 
 
 # ENDPOINT PARA EL LOGIN (GENERAR EL TOKEN)
@@ -74,9 +82,9 @@ def handle_login():
             "message": "Invalid credential"
         }), 400
     
-    password_valid = password == user.password
+    password_is_valid= check_password_hash(user.password_hash,password + user.salt)
 
-    if not password_valid:
+    if not password_is_valid:
         return jsonify({
            "message": "email and password required"
         }), 400
