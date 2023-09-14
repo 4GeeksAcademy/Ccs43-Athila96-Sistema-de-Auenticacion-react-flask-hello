@@ -5,3 +5,73 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+
+.styleInput {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  -webkit-box-shadow: 0px 0px 17px #57d8ff;
+  -moz-box-shadow: 0px 0px 17px #57d8ff;
+  box-shadow: 0px 0px 17px #57d8ff;
+  font-family: Arial;
+  color: #000000;
+  font-size: 18px;
+  padding: 11px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.styleLabel {
+  color: #57d8ff;
+}
+
+.buttonss {
+  background: #5aedfc;
+  background-image: -webkit-linear-gradient(top, #5aedfc, #4eb2fe);
+  background-image: -moz-linear-gradient(top, #5aedfc, #4eb2fe);
+  background-image: -ms-linear-gradient(top, #5aedfc, #4eb2fe);
+  background-image: -o-linear-gradient(top, #5aedfc, #4eb2fe);
+  background-image: linear-gradient(to bottom, #5aedfc, #4eb2fe);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  -webkit-box-shadow: 0px 5px 12px #4d5557;
+  -moz-box-shadow: 0px 5px 12px #4d5557;
+  box-shadow: 0px 5px 12px #4d5557;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 21px;
+  padding: 11px 40px 11px 40px;
+  text-decoration: none;
+  border: none;
+}
+
+.buttonss:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
+.pageRight {
+  height: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: #5aedfc;
+  background-image: -webkit-linear-gradient(top, #5aedfc, #4eb2fe);
+  background-image: -moz-linear-gradient(top, #5aedfc, #4eb2fe);
+  background-image: -ms-linear-gradient(top, #5aedfc, #4eb2fe);
+  background-image: -o-linear-gradient(top, #5aedfc, #4eb2fe);
+  background-image: linear-gradient(to bottom, #5aedfc, #4eb2fe);
+}
+
+.aa {
+  border-radius: 50%;
+}
+
+.formu {
+  display: inline-block;
+}

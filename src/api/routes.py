@@ -65,7 +65,7 @@ def create_user():
 # ENDPOINT PARA EL LOGIN (GENERAR EL TOKEN)
 
 @api.route('/login', methods=["POST"])
-def handle_login():
+def login():
     body =  request.json
     email = body.get("email")
     password = body.get("password")
@@ -103,4 +103,4 @@ def handle_login():
 def get_user():
     current_user = get_jwt_identity()
     user = User.query.get(current_user)
-    return jsonify(user.serialize()), 200
+    return jsonify(user.serialize()), 201
